@@ -1,0 +1,10 @@
+$font-stack: Helvetica, sans-serif;
+
+.calendar-container{
+    font: $font-stack;
+    box-sizing: border-box;
+    border: 10px solid rgb(1, 128, 111);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+}
