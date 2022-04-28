@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import CalendarContainer from './CalendarContainer'
 import DayCalendar from './DayCalendar'
 import MonthCalendar from './MonthCalendar'
+import { DateContext } from '../../context'
 
 class Calendar extends Component {
   constructor(props) {
@@ -14,13 +15,12 @@ class Calendar extends Component {
 
   render() {
     return (
-      <CalendarContainer>
-        <DayCalendar
-          weekDay={format(this.state.currentDate, 'eeee')}
-          day={format(this.state.currentDate, 'dd')}
-        />
-        <MonthCalendar month={format(this.state.currentDate, 'eeee')} />
-      </CalendarContainer>
+      <DateContext.Provider value={this.state.currentDate}>
+        <CalendarContainer>
+          <DayCalendar />
+          <MonthCalendar />
+        </CalendarContainer>
+      </DateContext.Provider>
     )
   }
 }
