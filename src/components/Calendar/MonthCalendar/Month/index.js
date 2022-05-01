@@ -1,5 +1,5 @@
 import React from 'react'
-import { startOfMonth, addWeeks, startOfWeek } from 'date-fns'
+import { startOfMonth, addWeeks, startOfWeek, format } from 'date-fns'
 import Week from '../Week'
 import styles from './Month.module.scss'
 
@@ -14,24 +14,21 @@ const WeeksHead = () => (
 )
 
 const Month = (props) => {
-  // const weeksArray = new Array(getWeeksInMonth(new Date(2022, 4, 7))).fill(null).map(( index)=><Day key={`${index}`} day={addDays(startOfWeek, index)} />
-  // const startOfWeek = startOfWeek(new Date())
-
-  const weeksArray = []
   const weekStart = startOfWeek(startOfMonth(props.date))
-
-  for (let i = 0; i < 6; i++) {
-    weeksArray.push(<Week weekStart={addWeeks(weekStart, i)} />)
-  }
-
-  // {getWeekOfMonth(new Date(2022, 4, 7))}
-  // {getWeeksInMonth(new Date(2022, 4, 7))}
+  const weeksArray = new Array(6)
+    .fill(null)
+    .map((w, index) => <Week weekStart={addWeeks(weekStart, index)} />)
 
   return (
-    <table>
-      <WeeksHead />
-      <tbody>{weeksArray}</tbody>
-    </table>
+    <>
+      <div className={styles['calendare-header']}>
+        {format(props.date, 'MMM Y')}
+      </div>
+      <table>
+        <WeeksHead />
+        <tbody>{weeksArray}</tbody>
+      </table>
+    </>
   )
 }
 

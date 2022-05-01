@@ -8,7 +8,7 @@ const Week = (props) => {
 
   const dayArray = new Array(7)
     .fill(null)
-    .map((week, index) => (
+    .map((d, index) => (
       <Day
         key={`${addWeeks(getWeekOfMonth(weekStart), index)}`}
         day={addDays(weekStart, index)}

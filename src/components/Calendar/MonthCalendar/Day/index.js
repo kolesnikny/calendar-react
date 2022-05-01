@@ -13,7 +13,7 @@ const Day = (props) => {
           [styles['day-other-month']]:
             format(props.day, 'M') !== format(checkedDate, 'M'),
           [styles['day-checked']]:
-            format(props.day, 'd M Y') === format(new Date(), 'd M Y'),
+            format(props.day, 'd M Y') === format(checkedDate, 'd M Y'),
         })
         return (
           <td
