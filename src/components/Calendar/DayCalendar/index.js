@@ -3,7 +3,7 @@ import { format } from 'date-fns'
 import { DateContext } from '../../../context'
 
 const DayCalendar = (props) => {
-  console.log(props.weekDay)
+  
   return (
     <DateContext.Consumer>
       {(currentDate) => {

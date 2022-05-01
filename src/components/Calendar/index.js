@@ -15,7 +15,7 @@ class Calendar extends Component {
 
   render() {
     return (
-      <DateContext.Provider value={this.state.currentDate}>
+      <DateContext.Provider value={new Date()}>
         <CalendarContainer>
           <DayCalendar />
           <MonthCalendar />

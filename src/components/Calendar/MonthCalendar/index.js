@@ -1,7 +1,8 @@
 import React from 'react'
 import { DateContext } from '../../../context'
-import { format } from ''
 import style from './MonthCalendar.module.scss'
+import Head from './Head'
+import Month from './Month'
 
 const MonthCalendar = (props) => {
   return (
@@ -9,7 +10,8 @@ const MonthCalendar = (props) => {
       {(currentDate) => {
         return (
           <div className={style['calendar-container']}>
-            {format(this.state.currentDate, 'eeee')}
+            <Head date={currentDate}></Head>
+            <Month date={currentDate}></Month>
           </div>
         )
       }}
