@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import { format } from 'date-fns'
 import CalendarContainer from './CalendarContainer'
 import DayCalendar from './DayCalendar'
 import MonthCalendar from './MonthCalendar'
@@ -10,15 +9,25 @@ class Calendar extends Component {
     super(props)
     this.state = {
       currentDate: new Date(),
+      checkedDate: new Date(),
     }
+  }
+
+  handleDate = (newDate) => {
+    this.setState(() => ({
+      checkedDate: new Date(newDate),
+    }))
   }
 
   render() {
     return (
-      <DateContext.Provider value={new Date()}>
+      <DateContext.Provider value={this.state.checkedDate}>
         <CalendarContainer>
-          <DayCalendar />
-          <MonthCalendar />
+          <DayCalendar date={this.state.checkedDate} />
+          <MonthCalendar
+            date={this.state.checkedDate}
+            handleDate={this.handleDate}
+          />
         </CalendarContainer>
       </DateContext.Provider>
     )

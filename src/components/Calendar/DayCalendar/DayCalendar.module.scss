@@ -5,5 +5,17 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: space-around
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar-day-weekday{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.calendar-day-date{
+    font-size: 12em;
+    font-weight: 300;
 }

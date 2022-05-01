@@ -4,7 +4,7 @@ import Day from '../Day'
 import styles from '../Month/Month.module.scss'
 
 const Week = (props) => {
-  const { weekStart } = props
+  const { weekStart, ...res } = props
 
   const dayArray = new Array(7)
     .fill(null)
@@ -12,6 +12,7 @@ const Week = (props) => {
       <Day
         key={`${addWeeks(getWeekOfMonth(weekStart), index)}`}
         day={addDays(weekStart, index)}
+        {...res}
       />
     ))
 
